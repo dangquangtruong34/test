@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Test</title>
+  <style>
+    body {
+      background: linear-gradient(to top, #ffe6e6, #fff0f5);
+      overflow: hidden;
+      margin: 0;
+      height: 100vh;
+      position: relative;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .heart {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(45deg, #ff4d4d, #ff99cc);
+      position: absolute;
+      top: 100%;
+      transform: rotate(-45deg);
+      animation: floatUp 6s ease-in-out infinite, colorShift 3s ease-in-out infinite alternate, drift 3s ease-in-out infinite alternate;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      width: 60px;
+      height: 60px;
+      background: inherit;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .heart::before {
+      top: -30px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 30px;
+      top: 0;
+    }
+
+    @keyframes floatUp {
+      0% {
+        top: 100%;
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        top: -10%;
+        opacity: 0;
+      }
+    }
+
+    @keyframes colorShift {
+      0% {
+        background: linear-gradient(45deg, #ff4d4d, #ff99cc);
+      }
+      50% {
+        background: linear-gradient(45deg, #ff6699, #ffccff);
+      }
+      100% {
+        background: linear-gradient(45deg, #ff4da6, #ff99cc);
+      }
+    }
+
+    @keyframes drift {
+      0% {
+        transform: rotate(-45deg) translateX(0);
+      }
+      50% {
+        transform: rotate(-45deg) translateX(20px);
+      }
+      100% {
+        transform: rotate(-45deg) translateX(-20px);
+      }
+    }
+
+    .message {
+      position: absolute;
+      top: 40%;
+      width: 100%;
+      text-align: center;
+      font-size: 40px;
+      color: #ff4d88;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px #fff;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- câu nhắn -->
+  <div class="message">Tặng chị N =)) 💖</div>
+
+  <!-- nhiều trái tim -->
+  <div class="heart" style="left:15%; animation-delay: 0s;"></div>
+  <div class="heart" style="left:35%; animation-delay: 1s;"></div>
+  <div class="heart" style="left:55%; animation-delay: 2s;"></div>
+  <div class="heart" style="left:75%; animation-delay: 3s;"></div>
+  <div class="heart" style="left:85%; animation-delay: 4s;"></div>
+</body>
+</html>
